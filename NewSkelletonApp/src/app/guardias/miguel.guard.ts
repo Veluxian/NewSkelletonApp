@@ -14,7 +14,7 @@ export class MiguelGuard implements CanActivate {
     if (usuarioCapturado) {
       return true; // Usuario capturado, permitir acceso
     } else {
-      this.router.navigate(['/error-page']); // Usuario no capturado, redirigir a la página de error
+      this.router.navigate(['/error404']); // Usuario no capturado, redirigir a la página de error
       return false;
     }
   }
