@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { RecuperaUsuarioService } from 'src/app/servicios/recupera-usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -11,15 +12,15 @@ export class LoginPage implements OnInit {
   nombreUsuario!: string;
   contrasenaUsuario: string='';
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private servicioUsuario: RecuperaUsuarioService) { }
 
   ngOnInit() {
   }
 
   contrasenaValidacion(event: any) {
     const inputValue = event.target.value;
-    const numericValue = inputValue.replace(/\D/g, ''); // Elimina caracteres no numéricos
-    this.contrasenaUsuario = numericValue.slice(0, 4); // Limita a 4 dígitos
+    const numericValue = inputValue.replace(/\D/g, ''); 
+    this.contrasenaUsuario = numericValue.slice(0, 4); 
   }
 
   enviarDatos() {
@@ -29,7 +30,7 @@ export class LoginPage implements OnInit {
           usuario: this.nombreUsuario
         }
       };
-
+      this.servicioUsuario.capturarUsuario(this.nombreUsuario);
       this.router.navigate(['/home'], navigationExtras);
     }
   }
