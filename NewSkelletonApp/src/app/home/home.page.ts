@@ -9,6 +9,7 @@ import { Routes } from '@angular/router';
 export class HomePage {
 
   nombreUsuario: string='';
+  segmentoSeleccionado: string = 'mis-datos'; // Valor inicial del segmento
 
   constructor() 
   {
@@ -16,7 +17,5 @@ export class HomePage {
     if (state && state.usuario) {
       this.nombreUsuario = state.usuario;
   }}
-
-
 
 }

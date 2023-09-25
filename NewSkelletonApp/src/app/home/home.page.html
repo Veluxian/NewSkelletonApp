@@ -7,8 +7,29 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-  <div id="container">
-    <h2>Welcometela: {{nombreUsuario}}</h2>
+  <h3> funciona </h3>
+  <div [ngSwitch]="segmentoSeleccionado">
+    <app-experiencia-laboral *ngSwitchCase="'experiencia-laboral'"></app-experiencia-laboral>
+    <app-certificaciones *ngSwitchCase="'certificaciones'"></app-certificaciones>
+    <app-mis-datos *ngSwitchCase="'mis-datos'"></app-mis-datos>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="segmentoSeleccionado">
+      <ion-segment-button value="experiencia-laboral">
+        <ion-icon name="briefcase"></ion-icon>
+        Experiencia Laboral
+      </ion-segment-button>
+      <ion-segment-button value="certificaciones">
+        <ion-icon name="medal"></ion-icon>
+        Certificaciones
+      </ion-segment-button>
+      <ion-segment-button value="mis-datos">
+        <ion-icon name="person"></ion-icon>
+        Mis Datos
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>

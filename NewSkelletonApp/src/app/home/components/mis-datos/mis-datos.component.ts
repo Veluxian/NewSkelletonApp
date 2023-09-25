@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MisDatosComponent  implements OnInit {
 
-  constructor() { }
+  nombreUsuario: string='';
+  
+  constructor() 
+  {
+    const state = window.history.state;
+    if (state && state.usuario) {
+      this.nombreUsuario = state.usuario;
+  }}
 
   ngOnInit() {}
 
