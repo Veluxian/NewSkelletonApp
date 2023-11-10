@@ -1,3 +1,28 @@
-<p>
-  mis-datos works! {{nombreUsuario}}
-</p>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <h1> Bienvenido {{nombreUsuario}}</h1>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item>
+          <ion-label>Nombre</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Apellido</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" class="ion-padding-bottom">Educacion</ion-label>
+          <ion-select placeholder="selecciona nivel" [(ngModel)]="data.educacion">
+            <ion-select-option *ngFor="let niv of niveles" [value]="niv.ide">{{niv.nivel}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
